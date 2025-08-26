@@ -54,13 +54,16 @@
       <div
         class="grid grid-cols-3 min-h-[200px] max-w-lg mx-auto gap-5 rounded-xl p-3"
       >
-        <div
+        <div 
+        
+        id="add-btn"
           class="border-2 border-gray-300 text-center items-center p-3 rounded-xl"
         >
           <img class="mx-auto" src="./assets/wallet1.png" alt="" />
           <h1>Add Money</h1>
         </div>
         <div
+        id="cash-out-btn"
           class="border-2 border-gray-300 text-center items-center p-3 rounded-xl"
         >
           <img class="mx-auto" src="./assets/send1.png" alt="" />
@@ -95,7 +98,7 @@
 
     <div class="all-form-sectios max-w-lg mx-auto ">
       <!-- add money  -->
-      <div>
+      <div id="add-money-parent">
         <h1 class="my-3 font-bold">Add Money</h1>
         <form action="" class="bg-white rounded-2xl p-8">
           <div  class="mb-3 mt-3">
@@ -141,6 +144,47 @@
             />
           </div>
           <button type="button" class="btn bg-[#0874F2] mt-5 w-full rounded-3xl text-white" id="add-money-btn" >Add Money</button>
+        </form>
+      </div>
+      <!-- Cash Out  -->
+      <div id="cash-out-parent" style="display: none;" >
+        <h1 class="my-3 font-bold">Cash Out</h1>
+        <form action="" class="bg-white rounded-2xl p-8">
+          
+          <div class="mb-3 mt-3">
+            <label for="mobile-number" class="font-semibold"
+              >Agent Number</label
+            ><br />
+            <input
+              type="text"
+              id="agent-number"
+              placeholder="Enter 11 digit Number"
+              class="input bg-[#f4f5f7] mt-3 rounded-3xl w-full"
+            />
+          </div>
+          <div class="mb-3 mt-3">
+            <label for="mobile-number" class="font-semibold"
+              >Amount</label
+            ><br />
+            <input
+              type="text"
+              id="withdraw-amount"
+              placeholder="Enter Amount to Withdraw"
+              class="input bg-[#f4f5f7] mt-3 rounded-3xl w-full"
+            />
+          </div>
+          <div>
+            <label for="mobile-number" class="font-semibold"
+              >Pin Number</label
+            ><br />
+            <input
+              type="text"
+             id="withdraw-pin"
+              placeholder="Enter 4 digit pin"
+              class="input bg-[#f4f5f7] mt-3 rounded-3xl w-full"
+            />
+          </div>
+          <button type="button" class="btn bg-[#0874F2] mt-5 w-full rounded-3xl text-white" id="withdraw-btn" >Withdraw Money</button>
         </form>
       </div>
     </div>
