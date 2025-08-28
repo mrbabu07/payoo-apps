@@ -56,7 +56,7 @@
       >
         <div 
         
-        id="add-btn"
+        id="add-button"
           class="border-2 border-gray-300 text-center items-center p-3 rounded-xl"
         >
           <img class="mx-auto" src="./assets/wallet1.png" alt="" />
@@ -69,13 +69,13 @@
           <img class="mx-auto" src="./assets/send1.png" alt="" />
           <h1>Cash Out</h1>
         </div>
-        <div
+        <div id="transfer-btn"
           class="border-2 border-gray-300 text-center items-center p-3 rounded-xl"
         >
           <img class="mx-auto" src="./assets/bonus1.png" alt="" />
           <h1>Transfer Money</h1>
         </div>
-        <div
+        <div id="get-bonus-btn"
           class="border-2 border-gray-300 text-center items-center p-3 rounded-xl"
         >
           <img class="mx-auto" src="./assets/purse1.png" alt="" />
@@ -98,7 +98,7 @@
 
     <div class="all-form-sectios max-w-lg mx-auto ">
       <!-- add money  -->
-      <div id="add-money-parent">
+      <div class="form" id="add-money-parent">
         <h1 class="my-3 font-bold">Add Money</h1>
         <form action="" class="bg-white rounded-2xl p-8">
           <div  class="mb-3 mt-3">
@@ -147,7 +147,7 @@
         </form>
       </div>
       <!-- Cash Out  -->
-      <div id="cash-out-parent" style="display: none;" >
+      <div class="form" id="cash-out-parent" style="display: none;" >
         <h1 class="my-3 font-bold">Cash Out</h1>
         <form action="" class="bg-white rounded-2xl p-8">
           
@@ -187,6 +187,18 @@
           <button type="button" class="btn bg-[#0874F2] mt-5 w-full rounded-3xl text-white" id="withdraw-btn" >Withdraw Money</button>
         </form>
       </div>
+
+      <!-- transfer money  -->
+       <div class="form" id="transfer-money-parent" style="display: none;" >
+            <h1 class="my-3 font-bold">Transfer Money</h1>
+
+       </div>
+
+       <!-- get bonus option  -->
+        <div class="form" id="bonus-money-parent" style="display: none;" >
+            <h1 class="my-3 font-bold">Get Bonus</h1>
+
+       </div>
     </div>
 
 
