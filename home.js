@@ -40,6 +40,22 @@ function handleToggle(id){
    document.getElementById(id).style.display = "block"
 }
 
+// function to toggle button 
+function handleButtonToggle(id){
+  const formBtns = document.getElementsByClassName("form-btn")
+   
+  for(const btn of formBtns){
+    btn.classList.remove("border-[#0874f2]", "bg-[#0874f20d]")
+    btn.classList.add("border-gray-300")
+  }
+
+  document.getElementById(id).classList.remove("border-gray-300")
+
+  document.getElementById(id)
+  .classList.add("border-[#0874f2]", "bg-[#0874f20d]")
+
+}
+
 // add money feature
 document
   .getElementById("add-money-btn")
@@ -102,6 +118,8 @@ document
 document.getElementById("add-button")
 .addEventListener('click', function(event){
   handleToggle("add-money-parent")
+
+  handleButtonToggle("add-button")
 });
 
 
@@ -109,15 +127,22 @@ document.getElementById("add-button")
 document.getElementById("cash-out-btn")
 .addEventListener("click", function (event) {
   handleToggle("cash-out-parent")
+
+   handleButtonToggle("cash-out-parent")
+
 });
 
 document.getElementById("transfer-btn")
 .addEventListener("click", function (event) {
 handleToggle("transfer-money-parent")
+
+ handleButtonToggle("transfer-money-parent")
 });
 
 document.getElementById("get-bonus-btn")
 .addEventListener("click", function (event) {
 
    handleToggle("bonus-money-parent")
+
+    handleButtonToggle("bonus-money-parent")
 });
