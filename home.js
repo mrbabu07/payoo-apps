@@ -1,4 +1,5 @@
 const validPin = 1234;
+const transactionData = []
 
 // function to get values
 function getInputValueNumber(id) {
@@ -69,6 +70,11 @@ document
     const amount = getInputValueNumber("add-amount");
     const pin = getInputValueNumber("add-pin");
 
+    if(amount <=0){
+      alert("invalid number")
+      return;
+    }
+
     if (accountNumber.length < 11) {
       alert("Please Provide Valid Account Number");
       return;
@@ -84,7 +90,14 @@ document
 
     const totalNewAvailableBalance = amount + availableBalance;
 
-    setInnerText(totalNewAvailableBalance); // ✅ function use করা হলো
+    setInnerText(totalNewAvailableBalance); 
+
+    const data = {
+      name:"Add Money",
+      date:new Date().toLocaleDateString()
+    }
+    transactionData.push(data)
+
   });
 
 // cash out money feature
@@ -108,11 +121,49 @@ document
 
     const amount = getInputValueNumber("withdraw-amount");
     const availableBalance = getInnerText("available-balance");
+
+    if(amount <=0 || amount > availableBalance){
+      alert("invalid amount")
+      return;
+    }
+
     const totalNewAvailableBalance = availableBalance - amount;
     console.log(totalNewAvailableBalance);
 
-    setInnerText(totalNewAvailableBalance); // ✅ function use করা হলো
+    setInnerText(totalNewAvailableBalance); // 
+
+    const data = {
+      name:"Cash Out",
+      date:new Date().toLocaleDateString()
+    }
+    transactionData.push(data)
+
   });
+
+  document.getElementById("transaction-btn").addEventListener("click", function() {
+  const transactionContainer = document.getElementById("transaction-container");
+  transactionContainer.innerText =""
+
+  for (const data of transactionData) {
+    const div = document.createElement("div");
+    div.innerHTML = `
+      <div class="p-3  bg-white rounded-xl flex justify-between items-center mt-3">
+        <div class="flex items-center">
+          <div class="p-3 rounded-full bg-gray-100">
+            <img src="./assets/wallet1.png" alt="">
+          </div>
+          <div class="ml-3">
+            <h1>${data.name}</h1>
+            <p>${data.date}</p>
+          </div>
+        </div>
+        <i class="fa-solid fa-ellipsis-vertical"></i>
+      </div>
+    `;
+    transactionContainer.appendChild(div);
+  }
+});
+
 
 // toggle feature
 document.getElementById("add-button")
@@ -128,7 +179,7 @@ document.getElementById("cash-out-btn")
 .addEventListener("click", function (event) {
   handleToggle("cash-out-parent")
 
-   handleButtonToggle("cash-out-parent")
+   handleButtonToggle("cash-out-btn")
 
 });
 
@@ -136,7 +187,7 @@ document.getElementById("transfer-btn")
 .addEventListener("click", function (event) {
 handleToggle("transfer-money-parent")
 
- handleButtonToggle("transfer-money-parent")
+ handleButtonToggle("transfer-btn")
 });
 
 document.getElementById("get-bonus-btn")
@@ -144,5 +195,21 @@ document.getElementById("get-bonus-btn")
 
    handleToggle("bonus-money-parent")
 
-    handleButtonToggle("bonus-money-parent")
+    handleButtonToggle("get-bonus-btn")
+});
+
+document.getElementById("bill-btn")
+.addEventListener("click", function (event) {
+
+   handleToggle("pay-bill-parent")
+
+    handleButtonToggle("bill-btn")
+});
+
+document.getElementById("transaction-btn")
+.addEventListener("click", function (event) {
+
+   handleToggle("transaction-parent")
+
+    handleButtonToggle("transaction-btn")
 });
